@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tomáš — Portfolio</title>
+  <meta name="description" content="Jednoduché portfolio Tomáše: projekty, dovednosti a kontakt." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="logo" href="#">Tomáš</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="o-mne.html">O mně</a></li>
+        <li><a href="#projekty">Projekty</a></li>
+        <li><a href="#dovednosti">Dovednosti</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Ahoj, jsem Tomáš</h1>
+        <p>Tvořím čisté weby a jednoduchá řešení, která dávají smysl.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projekty">Zobrazit projekty</a>
+          <a class="btn" href="#kontakt">Napsat zprávu</a>
+        </div>
+      </div>
+      <div class="hero-photo" aria-hidden="true"></div>
+    </section>
+
+    <section id="o-mne" class="section">
+      <h2>O mně</h2>
+      <p>
+        Jsem HTML nadšenec z Brna. Mám rád jednoduchost, přístupnost a rychlé weby.
+        Pracuji s HTML a CSS. Učím se React a zkoumám serverové technologie. IT chlap co žije pro web. A ať žije ZPC. 
+      </p>
+    </section>
+
+    <section id="projekty" class="section">
+      <h2>Vybrané projekty</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Tvorba webové stránky s vlastním portfoliem</h3>
+          <p>Kompletní návrh a realizace osobní webové prezentace včetně portfolia.</p>
+          <a class="link" href="projekt1.html" aria-label="Otevřít projekt Tvorba webové stránky s vlastním portfoliem">Otevřít projekt →</a>
+        </article>
+        <article class="card">
+          <h3>Mini projekt realizovaný pomocí vinylové řezačky nebo řezacího ploteru</h3>
+          <p>Praktická ukázka využití vinylové řezačky/ploteru pro tvorbu vlastního výrobku.</p>
+          <a class="link" href="projekt2.html" aria-label="Otevřít projekt Mini projekt vinylová řezačka/ploter">Otevřít projekt →</a>
+        </article>
+        <article class="card">
+          <h3>Mini projekt se zaměřením na 3D skenování</h3>
+          <p>Projekt využívající 3D skenování pro digitalizaci objektu a jeho další zpracování.</p>
+          <a class="link" href="projekt3.html" aria-label="Otevřít projekt Mini projekt 3D skenování">Otevřít projekt →</a>
+        </article>
+        <article class="card">
+          <h3>Mini projekt realizovaný pomocí 3D tisku</h3>
+          <p>Vytvoření a výroba vlastního produktu pomocí 3D tiskárny.</p>
+          <a class="link" href="projekt4.html" aria-label="Otevřít projekt Mini projekt 3D tisk">Otevřít projekt →</a>
+        </article>
+        <article class="card">
+          <h3>Mini projekt realizovaný pomocí mikrokontroléru se vstupními a výstupními zařízeními</h3>
+          <p>Ukázka práce s mikrokontrolérem, senzory a aktuátory v jednoduché aplikaci.</p>
+          <a class="link" href="projekt5.html" aria-label="Otevřít projekt Mini projekt mikrokontrolér">Otevřít projekt →</a>
+        </article>
+        <article class="card">
+          <h3>Individuální semestrální projekt</h3>
+          <p>Samostatně zvolený projekt dle vlastního zaměření a zájmu.</p>
+          <a class="link" href="projekt6.html" aria-label="Otevřít projekt Individuální semestrální projekt">Otevřít projekt →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="dovednosti" class="section">
+      <h2>Dovednosti</h2>
+      <ul class="tags" aria-label="Seznam dovedností">
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+        <li>Responsive design</li>
+        <li>Accessibility</li>
+        <li>Git</li>
+      </ul>
+    </section>
+
+    <section id="kontakt" class="section">
+      <h2>Kontakt</h2>
+      <p>Ozvěte se mi, rád si poslechnu váš nápad.</p>
+      <form class="contact-form" action="#" method="post">
+        <div class="form-row">
+          <label for="name">Jméno</label>
+          <input id="name" name="name" type="text" placeholder="Vaše jméno" required />
+        </div>
+        <div class="form-row">
+          <label for="email">E‑mail</label>
+          <input id="email" name="email" type="email" placeholder="vas@email.cz" required />
+        </div>
+        <div class="form-row">
+          <label for="message">Zpráva</label>
+          <textarea id="message" name="message" rows="5" placeholder="Co máte na srdci?" required></textarea>
+        </div>
+        <button class="btn primary" type="submit">Odeslat</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Tomáš • Postaveno s láskou k jednoduchosti</p>
+  </footer>
+
+  <script>
+    // Dynamický rok ve footeru
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobilní menu toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('nav-menu');
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
