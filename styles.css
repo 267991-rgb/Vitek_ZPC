@@ -391,9 +391,10 @@ textarea:focus {
 
 .projekt-image img {
   max-width: 300px;
-  width: 100%;
+  width: 50%;
   height: auto;
   border-radius: 8px;
 }
 }
+
 
