@@ -390,11 +390,12 @@ textarea:focus {
 }
 
 .projekt-image img {
-  max-width: 300px;
+  max-width: 150px;
   width: 50%;
   height: auto;
   border-radius: 8px;
 }
 }
+
 
 
