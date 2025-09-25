@@ -42,30 +42,35 @@
       <p>
         Projekt, který jsem se rozhodl vytvořit je bezdotykový dávkovač na dezinfekci rukou. Bude se jednat o napodobení běžných dávkovačů, s vlastním návrhem dávkovacího mechanismu.
       </p>
-     <!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <title>Obrázek na webu</title>
- <style>
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-  }
+  <title>Obrázek bez rámečku</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-  img {
-    width: 300px; /* původně 300px, teď 2x menší */
-    max-width: 100%;
-    height: auto;
-  }
-</style>
+    img {
+      width: 500px; /* 2× menší než původních 300px */
+      height: auto;
+      border: none;
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body>
+  <img src="navrh.jpg" alt="Tomáš">
+</body>
+</html>
 
-<div class="container">
-  <img src="navrh.jpg" alt="Návrh">
-</div>
 
 </body>
 </html>
@@ -160,6 +165,7 @@
   </script>
 </body>
 </html>
+
 
 
 
