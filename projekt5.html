@@ -43,8 +43,7 @@
           </p>
           <img src="tinkercad.png" alt="Mikrokontrolér projekt" />
           <p>
-            <br>
-            Tady je více zmatené zapojení na reálných součástkách.
+                        Tady je více zmatené zapojení na reálných součástkách.
           </p>
           <img src="zapojeni.JPEG" alt="Mikrokontrolér projekt" />
           Za zmínku by stálo říct to, že při zobrazování na display se hodnoty vypisovaly hned za dvojtečku a když se hodnota zvětšila o řád, celý zápis se musel posunout, a tak bylo extrémně těžké číst hodnoty při rychlé
@@ -54,105 +53,104 @@
             Zde přikládám kód:
              <br>
              #include <LiquidCrystal.h>
-
-// připojení LCD: RS, E, D4, D5, D6, D7
-LiquidCrystal lcd(12, 11, 10, 9, 8, 6);
-
-const int trigPin = 5;
-const int echoPin = 7;
-
-// proměnné pro výpočet
-long duration;
-float distance;        // aktuální vzdálenost v cm
-float prevDistance = 0;
-float speed = 0;       // rychlost v cm/s
-unsigned long prevTime = 0;
-
-void setup() {
-  Serial.begin(9600);
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
-
-  lcd.begin(16, 2);
-  lcd.print("Inicializace...");
-  delay(800);
-  lcd.clear();
-  prevTime = millis();
-}
-
-void loop() {
-  // měření vzdálenosti
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-
-  duration = pulseIn(echoPin, HIGH, 25000); // timeout 25ms ~ 4m
-  if (duration > 0) {
-    distance = duration * 0.0343f / 2.0f;
-  } else {
-    distance = prevDistance; // při timeoutu držíme předchozí hodnotu
-  }
-
-  // výpočet rychlosti
-  unsigned long currentTime = millis();
-  float deltaTime = (currentTime - prevTime) / 1000.0f;
-
-  if (deltaTime > 0.0001f) {
-    speed = (prevDistance - distance) / deltaTime; // kladná = přibližuje se
-  } else {
-    speed = 0.0f;
-  }
-
-  // --- příprava formátovaných polí ---
-  char bufDist[10]; // 9 + '\0'
-  dtostrf((int)distance, 9, 0, bufDist); // vzdálenost jako celé číslo
-
-  char bufAbs[7];   // 6 znaků pro absolutní hodnotu
-  dtostrf((int)fabs(speed), 6, 0, bufAbs); // rychlost jako celé číslo
-
-  char bufNum[8];   // 7 znaků pro číslo + znaménko
-  for (int i = 0; i < 7; ++i) bufNum[i] = ' ';
-  bufNum[7] = '\0';
-
-  int lenNum = strlen(bufAbs);
-  int startPos = 6 - lenNum; // pozice čísla
-  if (startPos < 1) startPos = 1;
-  for (int i = 0; i < lenNum; ++i) bufNum[startPos + i] = bufAbs[i];
-
-  char sign = (speed >= 0.0f) ? '+' : '-';
-  int signPos = startPos - 1;
-  if (signPos < 0) signPos = 0;
-  bufNum[signPos] = sign;
-
-  // --- sestavení řádků pro LCD ---
-  char line1[17]; // 16 + '\0'
-  char line2[17];
-
-  snprintf(line1, sizeof(line1), "VZD: %9scm", bufDist);
-  snprintf(line2, sizeof(line2), "RYCH:%7scm/s", bufNum);
-
-  // --- výpis na LCD ---
-  lcd.setCursor(0, 0);
-  lcd.print(line1);
-  lcd.setCursor(0, 1);
-  lcd.print(line2);
-
-  // Debug do serialu
-  Serial.print("Vzdalenost: ");
-  Serial.print((int)distance);
-  Serial.print(" cm  |  Rychlost: ");
-  Serial.print((int)speed);
-  Serial.println(" cm/s");
-
-  // uložíme pro další iteraci
-  prevDistance = distance;
-  prevTime = currentTime;
-
-  delay(150); // 2x/s
-}
-
+<br>
+// připojení LCD: RS, E, D4, D5, D6, D7<br>
+LiquidCrystal lcd(12, 11, 10, 9, 8, 6);<br>
+<br>
+const int trigPin = 5;<br>
+const int echoPin = 7;<br>
+<br>
+// proměnné pro výpočet<br>
+long duration;<br>
+float distance;        // aktuální vzdálenost v cm<br>
+float prevDistance = 0;<br>
+float speed = 0;       // rychlost v cm/s<br>
+unsigned long prevTime = 0;<br>
+<br>
+void setup() {<br>
+  Serial.begin(9600);<br>
+  pinMode(trigPin, OUTPUT);<br>
+  pinMode(echoPin, INPUT);<br>
+<br>
+  lcd.begin(16, 2);<br>
+  lcd.print("Inicializace...");<br>
+  delay(800);<br>
+  lcd.clear();<br>
+  prevTime = millis();<br>
+}<br>
+<br>
+void loop() {<br>
+  // měření vzdálenosti<br>
+  digitalWrite(trigPin, LOW);<br>
+  delayMicroseconds(2);<br>
+  digitalWrite(trigPin, HIGH);<br>
+  delayMicroseconds(10);<br>
+  digitalWrite(trigPin, LOW);<br>
+<br>
+  duration = pulseIn(echoPin, HIGH, 25000); // timeout 25ms ~ 4m<br>
+  if (duration > 0) {<br>
+    distance = duration * 0.0343f / 2.0f;<br>
+  } else {<br>
+    distance = prevDistance; // při timeoutu držíme předchozí hodnotu<br>
+  }<br>
+<br>
+  // výpočet rychlosti<br>
+  unsigned long currentTime = millis();<br>
+  float deltaTime = (currentTime - prevTime) / 1000.0f;<br>
+<br>
+  if (deltaTime > 0.0001f) {<br>
+    speed = (prevDistance - distance) / deltaTime; // kladná = přibližuje se<br>
+  } else {<br>
+    speed = 0.0f;<br>
+  }<br>
+<br>
+  // --- příprava formátovaných polí ---<br>
+  char bufDist[10]; // 9 + '\0'<br>
+  dtostrf((int)distance, 9, 0, bufDist); // vzdálenost jako celé číslo<br>
+<br>
+  char bufAbs[7];   // 6 znaků pro absolutní hodnotu<br>
+  dtostrf((int)fabs(speed), 6, 0, bufAbs); // rychlost jako celé číslo<br>
+<br>
+  char bufNum[8];   // 7 znaků pro číslo + znaménko<br>
+  for (int i = 0; i < 7; ++i) bufNum[i] = ' ';<br>
+  bufNum[7] = '\0';<br>
+<br>
+  int lenNum = strlen(bufAbs);<br>
+  int startPos = 6 - lenNum; // pozice čísla<br>
+  if (startPos < 1) startPos = 1;<br>
+  for (int i = 0; i < lenNum; ++i) bufNum[startPos + i] = bufAbs[i];<br>
+<br>
+  char sign = (speed >= 0.0f) ? '+' : '-';<br>
+  int signPos = startPos - 1;<br>
+  if (signPos < 0) signPos = 0;<br>
+  bufNum[signPos] = sign;<br>
+<br>
+  // --- sestavení řádků pro LCD ---<br>
+  char line1[17]; // 16 + '\0'<br>
+  char line2[17];<br>
+<br>
+  snprintf(line1, sizeof(line1), "VZD: %9scm", bufDist);<br>
+  snprintf(line2, sizeof(line2), "RYCH:%7scm/s", bufNum);<br>
+<br>
+  // --- výpis na LCD ---<br>
+  lcd.setCursor(0, 0);<br>
+  lcd.print(line1);<br>
+  lcd.setCursor(0, 1);<br>
+  lcd.print(line2);<br>
+<br>
+  // Debug do serialu<br>
+  Serial.print("Vzdalenost: ");<br>
+  Serial.print((int)distance);<br>
+  Serial.print(" cm  |  Rychlost: ");<br>
+  Serial.print((int)speed);<br>
+  Serial.println(" cm/s");<br>
+<br>
+  // uložíme pro další iteraci<br>
+  prevDistance = distance;<br>
+  prevTime = currentTime;<br>
+<br>
+  delay(150); // 7x/s<br>
+}<br>
           </p>
               </div>
       </article>
@@ -163,5 +161,6 @@ void loop() {
   </main>
 </body>
 </html>
+
 
 
