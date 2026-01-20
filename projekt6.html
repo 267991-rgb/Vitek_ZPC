@@ -54,17 +54,18 @@
            <img src="old.JPEG" alt="Individuální projekt" />
           Jako řešní jsem zvolil nahrazení plastových válečků ložisky. To se mi zdálo jako velmi dobré řešení. Místo plastových válečků dám nejmenší radiální ložiska, zmenším poloměr na co nejmenší, 
           že se ložiska budou skoro dotýkat.
-          Celé to položím na axiální ložisko, které výrazně zvedne účinnost, protože se mi nebude třít plast o plast. I za cenu zvýšení hmotnosti rotační části axiální ložisko značně pomohlo.
+          Celé to položím na axiální ložisko, které výrazně zvedne účinnost, protože se mi nebude třít plast o plast. I za cenu zvýšení hmotnosti rotační části, axiální ložisko značně pomohlo.
           Tímto vylepšováním jsem strávil 6 týdnů. Zde je obrázek sestavení bubnu.
           <img src="profi_loziska.JPEG" alt="Individuální projekt" />
-          Tento přístup mě přiblížil, čerpadlo se navolno otáčelo, ale po zavedení hadičky tekutina v ní vystoupala jen minimálně - čerpadlo bylo slabé. Pořád jsem se bránil zavedení silnějšího motoru, který by vyžadoval 
+          Tento přístup mě přiblížil, čerpadlo se navolno otáčelo, ale po zavedení hadičky v ní tekutina vystoupala jen minimálně - čerpadlo bylo slabé. Pořád jsem se bránil zavedení silnějšího motoru, který by vyžadoval 
           nové, větší a drahé litiové baterie. Tak jsem přišel s dalším řešením. Zpřevoduji výstup motoru ozubenými koly.
            <img src="ozuby.JPEG" alt="Individuální projekt" />
           Ozubená kola pomohla, ale pravděpodobně hodně energie mizelo do tření mezi zuby. Tady jsem osobně dost bojoval, protože to byla moje první zkušenost s tiskem ozubených kol. Nevěděl jsem, jak malé zuby
           si mohu dovolit. Volil jsem tím pádem ne tak efektivní velké zuby.
                  <br>
           V tenhle moment jsem se na konzultaci dohodl, že opustím myšlenku tisku vlastního čerpadla a nějaké koupím. Čas se chýlil k 75% a já neměl ani funkční vnitřek.
-          Koupil jsem si tak membránové čerpadlo, které bylo malé a splňovalo elektrotechnické požadavky - dá se napájet 3-12V. Také bylo potřeba přemodelovat celé tělo dezinfekce. Zde je obrázek, s čím jsem přišel.
+          Koupil jsem si tak membránové čerpadlo, které bylo malé a splňovalo elektrotechnické požadavky - dá se napájet 3-12V, což je perfektní s mojí 9V baterií.
+          Také bylo potřeba přemodelovat celé tělo dezinfekce. Zde je obrázek, s čím jsem přišel.
            <img src="nahled.PNG" alt="Individuální projekt" />
           Cesta k tomuhle návrhu nebyla ale tak přímočará.
 
@@ -85,20 +86,24 @@
 </video>
              
              Později jsem chtěl jen nabarvit povrch tak, aby byl stejné barvy a dobře vypadal. Jako barvu jsem si vybral černý spray. To byla chyba.
-          Na starých modelech jsem vyzkoušel, že barva dobře drží. Na těle nového prototypu nedržel dobře. 
+          Na starých modelech jsem vyzkoušel, že barva dobře drží. Na těle nového prototypu ale dobře nedržel. 
           Kvůli špatné kvalitě souborů se mi válcové tělo tisklo jako polygon a na hranách spray nedržel. Výsledkem byl
-             černý povrch s barevnými svislými pruhy. V domnění že to zachrání další vrstva, se na povrchu vytvořily kapky a kvůli nízké okolní teplotě v lednové garaži skončil projekt v katastrofálním stavu.
+             černý povrch s barevnými svislými pruhy. V domnění, že to zachrání další vrstva, se na povrchu vytvořily kapky a kvůli nízké okolní teplotě v lednové garaži skončil projekt v katastrofálním stavu.
               <br>
           Záchrana byla jen vytisknout tělo v jedné barvě a u toho zvednout kvalitu souborů, abych tiskl válec a ne hranol.
              <br>
-             A to nás dostává tam, kde jsem teď. Projekt funguje jen je potřeba přenést vnitřek do nového těla. 
+             A to nás dostává tam, kde jsem teď. Projekt funguje, jen je potřeba přenést vnitřek do nového těla. 
                 <br>
              Zde je fotka:
               <img src="konec.JPEG" alt="Individuální projekt" />
-             Celek tedy funguje tak, že se zapne centrálním spínačem. Senzor zaznamená ruku a spustí čerpadlo na krátký časový úsek. Dezinfekce kapne na ruku a spustí se časová ochrana, která čeká na oddělání ruky z prostoru
-             senzoru. Po odejmutí ruky se odpočítá časová ochrana a cyklus se může opakovat. Senzor hladiny u toho souběžně hlídá stav v nádrži a svítí zeleně, když je plná a červeně, když by dezinfekce měla dojít. Je to 
-             ale jen upozornění, nádrž totiž má rezervu a ještě několik desítek cyklů vydrží. Za poslední zmínku stojí dvě díry v přední části trupu. Ty slouží pro připojení na případnou změnu kódu nebo na připojení zdroje 
-             při vybití integrované baterky.
+             Celek tedy funguje tak, že se zapne centrálním spínačem. Senzor zaznamená ruku a spustí čerpadlo na krátký časový úsek. Dezinfekce kapne na ruku a spustí se časová ochrana, která čeká 
+          na oddělání ruky z prostoru
+             senzoru. Po odejmutí ruky se odpočítá časová ochrana a cyklus se může opakovat. Senzor hladiny u toho souběžně hlídá stav v nádrži a svítí zeleně, když je plná a červeně, když by dezinfekce měla dojít. 
+          Je to 
+             ale jen upozornění, nádrž totiž má rezervu a ještě několik desítek cyklů vydrží. Obvod je jištěn flybyck diodou, která slouží k ochraně elektronických součástek před napěťovou špičkou, která vzniká při
+          vypnutí zátěže.
+          Za poslední zmínku stojí dvě díry v přední části trupu. Ty slouží pro připojení na případnou změnu kódu nebo na připojení zdroje 
+             při vybití integrované baterie.
              <br>
           Zde je pro zajímavost moje počítadlo vylepšení :)
            <img src="iterace.JPEG" alt="Individuální projekt" />
@@ -111,6 +116,7 @@
   </main>
 </body>
 </html>
+
 
 
 
