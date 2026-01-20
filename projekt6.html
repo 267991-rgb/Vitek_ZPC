@@ -28,6 +28,7 @@
         <div class="blog-post-content">
           <p>
             Jako závěrečný projekt jsem si zvolil bezdotykovou dezinfekci, která se spouští bezdotykově a hlídá si hladinu tekutiny v nádrži. Disponuje ochranou proti nežádoucím spustěním a odkapávací mističkou.
+            Cílem bylo minimalizovat hmotnost, velikost a cenu komponent.
           </p>
           <ul>
             <li>Bezdotykové</li>
@@ -37,7 +38,34 @@
           <p>
             <strong>Technologie:</strong> 3D tisk, laserové řezání, arduino, pájení, lepení
           </p>
-          <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=700&q=80" alt="Individuální projekt" />
+          <img src="solo_cerpadlo.PNG" alt="Individuální projekt" />
+          <br>
+          Po několika konzultacích a úvahách jsem odstoupil od prvního návrhu řešení, který spočíval v takovém systému dávkování, který by byl kryt klapkou, která by se vysouvala a zasouvala tím regulovala průtok. 
+          Tento přístup selhal na nemožnosti utěsnit dávkování a přesné regulaci průtoku.
+           <br>
+          <br>
+          Dalším směrem, kterým jsem se vydal bylo vytvoření peristaltického čerpadla, které by z nádrže vytlačilo dezinfekci pomocí hadičky. 
+          Vytlačené množství by bylo regulované délkou doby běhu čerpadla místo úhlu, o který by se měl rotor v čerpadle otočit, protože krokový motor vyžaduje driver a další přebytečnou elektroniku, která by bráníla mému cílu 
+          vytvořit malou, lehce přenosnou dezinfekci a levnou dezinfekci.
+           <br>
+          Zde je obrázek návrhu:
+            <img src="komplex.PNG" alt="Individuální projekt" />
+          Zde jsem narazil na problém, že motorek, který jsem používal nedokázal útáhnout navržený vnitřek čerpadla. Tření bylo příliš velké.
+           <img src="old.JPEG" alt="Individuální projekt" />
+          Jako řešní jsem zvolil komponenty s lepším povrchem. To se mi zdálo jako velmi dobré řešení. Místo plastových válečků dám nejmenší radiální ložiska, zmenším poloměr na co nejmenší, že se ložiska budou skoro dotýkat 
+          a celé to položím na axiální ložisko, které výrazně zvedne účinost, protože se mi nebude třít plast o plast. I za cenu zvýšení hmotnosti rotační části axiální ložisko zančně pomohlo.
+          Tímto lazením jsem strávil 6 týdnů. Zde je obrázek sestavení bubnu.
+          <img src="profi_loziska.JPEG" alt="Individuální projekt" />
+          Tento přístup mě přiblížil, čerpadlo se navolno otáčelo ale po zavedení hadičky se tekutina v ní vyšplhala jen minimálně - čerpadlo bylo slabé. Pořád jsem se bránil zavedení silnějšího motoru, který by vyžadoval 
+          nové, větší drahé litiové baterie a tak jsem přišel s dalším řešením. Zpřevoduji výstup motoru ozubenými koly.
+           <img src="ozuby.JPEG" alt="Individuální projekt" />
+          Ozubená kola pomohla, ale pravděpodobně hodně energie mizelo do tření mezi zuby. Tady jsem osobně dost bojoval, protože to byla moje první zkušenost s tisknutím ozubených kol, a tak jsem nevěděl, jak malé zuby
+          si mohu dovolit. Volil jsem tím pádem ne tak efektivní velké zuby.
+                 <br>
+          V tenhle moment jsem se na konzultaci dohodl, že opustím myšlenku tisku vlastního čerpadla a nějaké koupím. Čas se chýlil k 75% a já neměl ani funkční vnitřek.
+          Koupil jsem si tak membránové čerpadlo, které bylo malé a splňovalo elektrotechnické požadavky mé baterky. Dá se napájet 3-12V. Také bylo potřeba přemodelovat celé tělo dezinfekce. Zde je obrázek, s čím jsem přišel.
+           <img src="nahled.PNG" alt="Individuální projekt" />
+          Cesta k tomuhle návrhu nebyla ale tak přímočará. 
         </div>
       </article>
       <p>
@@ -47,4 +75,5 @@
   </main>
 </body>
 </html>
+
 
